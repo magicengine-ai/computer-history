@@ -1,0 +1,18 @@
+# 计算机历史网站 Cron 任务配置
+# 使用方法：crontab /home/jason/.openclaw/workspace-trader/projects/computer-history/scripts/crontab-tasks
+
+# 环境变量
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# 每 10 分钟运行一次智能维护
+*/10 * * * * /home/jason/.openclaw/workspace-trader/projects/computer-history/scripts/smart-maintenance.sh >> /tmp/computer-history-maintenance.log 2>&1
+
+# 每天凌晨 2 点运行内容增强
+0 2 * * * /home/jason/.openclaw/workspace-trader/projects/computer-history/scripts/content-enhancement.sh >> /tmp/computer-history-enhancement.log 2>&1
+
+# 每周日午夜生成周报告
+0 0 * * 0 /home/jason/.openclaw/workspace-trader/projects/computer-history/scripts/generate-weekly-report.sh >> /tmp/computer-history-weekly.log 2>&1
+
+# 每月 1 号凌晨 3 点生成月报告
+0 3 1 * * /home/jason/.openclaw/workspace-trader/projects/computer-history/scripts/generate-monthly-report.sh >> /tmp/computer-history-monthly.log 2>&1
