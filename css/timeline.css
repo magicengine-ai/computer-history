@@ -1,0 +1,101 @@
+/* 时间线和公司页面专用样式 */
+
+.timeline-full {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-decade {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.timeline-decade h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.decade-events {
+    display: grid;
+    gap: 1rem;
+}
+
+.event-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-color);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.event-item:hover {
+    transform: translateX(5px);
+}
+
+.event-year {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+
+.event-text {
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+/* 公司时间线 */
+.company-timeline {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.company-info {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.company-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.company-info p {
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+.company-info strong {
+    color: white;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .event-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .event-year {
+        min-width: 60px;
+        font-size: 0.9rem;
+    }
+}

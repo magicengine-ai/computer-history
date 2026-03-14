@@ -1,0 +1,406 @@
+/* 页面专用样式 */
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 4rem 20px;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+.content {
+    padding: 4rem 0;
+}
+
+.chapter {
+    margin-bottom: 4rem;
+}
+
+.chapter h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.chapter p {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+/* 信息框 */
+.info-box {
+    background: #eff6ff;
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.info-box p {
+    margin: 0;
+}
+
+/* 步骤展示 */
+.steps {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    background: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.step-content p {
+    color: var(--light-text);
+    margin: 0;
+}
+
+/* 工艺流程 */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.process-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-top: 4px solid var(--accent-color);
+}
+
+.process-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.process-card p {
+    color: var(--light-text);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* 时间线（垂直） */
+.timeline-list {
+    margin: 2rem 0;
+}
+
+.timeline-item-vertical {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-item-vertical::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    bottom: -2rem;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-item-vertical:last-child::before {
+    display: none;
+}
+
+.timeline-year {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+    height: fit-content;
+}
+
+.timeline-desc {
+    flex: 1;
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.timeline-desc strong {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-desc p {
+    color: var(--light-text);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* 引用框 */
+.quote-box {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+    font-style: italic;
+}
+
+.quote-box p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* 公司网格 */
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.company-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.company-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.company-card p {
+    color: var(--light-text);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* 时代网格 */
+.era-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.era-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-top: 4px solid var(--primary-color);
+}
+
+.era-card h4 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.era-card p {
+    color: var(--light-text);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* 时代时间线 */
+.eras-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.era-block {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.era-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.era-number {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.era-years {
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+.era-block h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.era-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.era-block li {
+    padding: 0.5rem 0;
+    color: var(--light-text);
+    border-bottom: 1px dashed var(--border-color);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.era-block li:last-child {
+    border-bottom: none;
+}
+
+.era-block li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* 里程碑 */
+.milestone-list {
+    margin: 2rem 0;
+}
+
+.milestone {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+}
+
+.milestone-year {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+
+.milestone-content {
+    flex: 1;
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.milestone-content h4 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.milestone-content p {
+    color: var(--light-text);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* PC 演进 */
+.pc-evolution {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.pc-item {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.pc-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.pc-item p {
+    color: var(--light-text);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .timeline-item-vertical {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .timeline-item-vertical::before {
+        left: 20px;
+    }
+    
+    .milestone {
+        flex-direction: column;
+    }
+}
