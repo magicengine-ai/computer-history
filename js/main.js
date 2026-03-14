@@ -48,3 +48,9 @@ window.computerHistory = {
     pageData,
     updateLastModified
 };
+
+// 月度维护标记
+const monthlyMaintenance = {
+    enabled: true,
+    lastRun: new Date().toISOString()
+};
