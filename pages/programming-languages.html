@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程语言发展史 - 计算机历史</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .lang-timeline {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .lang-era {
+            margin-bottom: 50px;
+        }
+        .lang-era h2 {
+            color: #2563eb;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .lang-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #2563eb;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lang-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+        }
+        .lang-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        .lang-year {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+        .lang-desc {
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .lang-creator {
+            font-size: 0.85em;
+            color: #64748b;
+            font-style: italic;
+        }
+        .lang-impact {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+            font-size: 0.85em;
+            color: #059669;
+        }
+        .comparison-section {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+        .comparison-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .comparison-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .comparison-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        .comparison-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .comparison-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">💻 计算机历史</a>
+            <div class="nav-menu">
+                <a href="../index.html">首页</a>
+                <a href="chip.html">芯片</a>
+                <a href="computer.html">计算机</a>
+                <a href="ai.html">人工智能</a>
+                <a href="companies.html">科技公司</a>
+                <a href="timeline.html">时间线</a>
+                <a href="programming-languages.html" class="active">编程语言</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>📝 编程语言发展史</h1>
+        <p>从机器语言到人工智能，编程语言的演进之路</p>
+    </header>
+
+    <div class="lang-timeline">
+        <div class="lang-era">
+            <h2>🔧 第一代：机器语言与汇编 (1940s-1950s)</h2>
+            <div class="lang-grid">
+                <div class="lang-card">
+                    <div class="lang-name">机器语言</div>
+                    <div class="lang-year">1940s</div>
+                    <div class="lang-desc">
+                        计算机直接执行的二进制代码，由 0 和 1 组成。程序员需要直接操作硬件，极其复杂且容易出错。
+                    </div>
+                    <div class="lang-creator">硬件设计师</div>
+                    <div class="lang-impact">💡 影响：所有程序的基础，但几乎不再直接使用</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">汇编语言</div>
+                    <div class="lang-year">1949</div>
+                    <div class="lang-desc">
+                        使用助记符代替二进制指令，如 MOV、ADD、JMP 等。比机器语言更易读，但仍与硬件紧密相关。
+                    </div>
+                    <div class="lang-creator">Kathleen Booth</div>
+                    <div class="lang-impact">💡 影响：至今用于底层系统开发和性能优化</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lang-era">
+            <h2>📟 第二代：高级语言诞生 (1950s-1960s)</h2>
+            <div class="lang-grid">
+                <div class="lang-card">
+                    <div class="lang-name">Fortran</div>
+                    <div class="lang-year">1957</div>
+                    <div class="lang-desc">
+                        世界上第一个高级编程语言，专为科学计算和工程计算设计。引入了变量、循环、条件语句等概念。
+                    </div>
+                    <div class="lang-creator">John Backus (IBM)</div>
+                    <div class="lang-impact">💡 影响：科学计算领域仍在使用，影响了后续所有语言</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">COBOL</div>
+                    <div class="lang-year">1959</div>
+                    <div class="lang-desc">
+                        面向商业应用的编程语言，语法接近英语。主要用于商业、金融和行政管理系统。
+                    </div>
+                    <div class="lang-creator">Grace Hopper</div>
+                    <div class="lang-impact">💡 影响：至今仍有数千亿行 COBOL 代码在银行系统中运行</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">BASIC</div>
+                    <div class="lang-year">1964</div>
+                    <div class="lang-desc">
+                        为初学者设计的语言，语法简单易懂。后来成为个人电脑早期最流行的编程语言。
+                    </div>
+                    <div class="lang-creator">John Kemeny & Thomas Kurtz</div>
+                    <div class="lang-impact">💡 影响：培养了第一代程序员，衍生出 Visual Basic 等</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lang-era">
+            <h2>🏗️ 第三代：结构化编程 (1970s-1980s)</h2>
+            <div class="lang-grid">
+                <div class="lang-card">
+                    <div class="lang-name">C</div>
+                    <div class="lang-year">1972</div>
+                    <div class="lang-desc">
+                        系统编程语言的典范，兼具高级语言的易用性和低级语言的性能。Unix 操作系统用 C 重写。
+                    </div>
+                    <div class="lang-creator">Dennis Ritchie (贝尔实验室)</div>
+                    <div class="lang-impact">💡 影响：C 家族语言的祖先，影响 C++、Java、Python 等</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">SQL</div>
+                    <div class="lang-year">1974</div>
+                    <div class="lang-desc">
+                        结构化查询语言，用于管理和操作关系数据库。成为数据库领域的标准语言。
+                    </div>
+                    <div class="lang-creator">Donald Chamberlin & Raymond Boyce</div>
+                    <div class="lang-impact">💡 影响：所有关系数据库的标准，数据科学必备技能</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">C++</div>
+                    <div class="lang-year">1983</div>
+                    <div class="lang-desc">
+                        C 语言的扩展，增加了面向对象特性。广泛用于系统软件、游戏、高性能应用。
+                    </div>
+                    <div class="lang-creator">Bjarne Stroustrup</div>
+                    <div class="lang-impact">💡 影响：游戏引擎、浏览器、操作系统核心仍大量使用</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">Objective-C</div>
+                    <div class="lang-year">1984</div>
+                    <div class="lang-desc">
+                        C 语言的面向对象扩展，成为 macOS 和 iOS 开发的主要语言长达 30 年。
+                    </div>
+                    <div class="lang-creator">Brad Cox & Tom Love</div>
+                    <div class="lang-impact">💡 影响：苹果生态系统的基础，现被 Swift 取代</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lang-era">
+            <h2>🌐 第四代：互联网时代 (1990s-2000s)</h2>
+            <div class="lang-grid">
+                <div class="lang-card">
+                    <div class="lang-name">Python</div>
+                    <div class="lang-year">1991</div>
+                    <div class="lang-desc">
+                        强调代码可读性的通用编程语言。语法简洁，库生态丰富，成为 AI 和数据科学的首选语言。
+                    </div>
+                    <div class="lang-creator">Guido van Rossum</div>
+                    <div class="lang-impact">💡 影响：AI/ML 领域主导语言，TIOBE 指数常年第一</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">Java</div>
+                    <div class="lang-year">1995</div>
+                    <div class="lang-desc">
+                        "一次编写，到处运行"的面向对象语言。JVM 虚拟机使其具有跨平台特性。
+                    </div>
+                    <div class="lang-creator">James Gosling (Sun Microsystems)</div>
+                    <div class="lang-impact">💡 影响：企业级应用、Android 开发的主流语言</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">JavaScript</div>
+                    <div class="lang-year">1995</div>
+                    <div class="lang-desc">
+                        网页交互的脚本语言，后来通过 Node.js 扩展到服务端。现代 Web 开发的三大核心技术之一。
+                    </div>
+                    <div class="lang-creator">Brendan Eich (Netscape)</div>
+                    <div class="lang-impact">💡 影响：前端开发垄断者，全栈开发必备</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">PHP</div>
+                    <div class="lang-year">1995</div>
+                    <div class="lang-desc">
+                        服务器端脚本语言，专为 Web 开发设计。WordPress、Facebook 早期都用 PHP 构建。
+                    </div>
+                    <div class="lang-creator">Rasmus Lerdorf</div>
+                    <div class="lang-impact">💡 影响：驱动了 70%+ 的网站，WordPress 生态核心</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">Ruby</div>
+                    <div class="lang-year">1995</div>
+                    <div class="lang-desc">
+                        注重程序员幸福感的语言，语法优雅。Ruby on Rails 框架推动了 Web 开发革命。
+                    </div>
+                    <div class="lang-creator">Yukihiro Matsumoto</div>
+                    <div class="lang-impact">💡 影响：Rails 框架影响了 Django、Laravel 等</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">C#</div>
+                    <div class="lang-year">2000</div>
+                    <div class="lang-desc">
+                        微软推出的面向对象语言，用于.NET 平台。游戏开发引擎 Unity 的主要脚本语言。
+                    </div>
+                    <div class="lang-creator">Anders Hejlsberg (微软)</div>
+                    <div class="lang-impact">💡 影响：企业应用、游戏开发的重要语言</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lang-era">
+            <h2>🚀 第五代：现代语言 (2010s-至今)</h2>
+            <div class="lang-grid">
+                <div class="lang-card">
+                    <div class="lang-name">Go</div>
+                    <div class="lang-year">2009</div>
+                    <div class="lang-desc">
+                        谷歌开发的系统编程语言，强调简洁和效率。内置并发支持，适合云原生和微服务。
+                    </div>
+                    <div class="lang-creator">Robert Griesemer, Rob Pike, Ken Thompson</div>
+                    <div class="lang-impact">💡 影响：Docker、Kubernetes 等云基础设施用 Go 编写</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">Swift</div>
+                    <div class="lang-year">2014</div>
+                    <div class="lang-desc">
+                        苹果推出的现代编程语言，取代 Objective-C。更安全、更快速、更易学。
+                    </div>
+                    <div class="lang-creator">Chris Lattner (苹果)</div>
+                    <div class="lang-impact">💡 影响：iOS/macOS 开发的标准语言</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">Rust</div>
+                    <div class="lang-year">2010</div>
+                    <div class="lang-desc">
+                        内存安全的系统编程语言，无垃圾回收器。性能接近 C++，但避免了常见内存错误。
+                    </div>
+                    <div class="lang-creator">Graydon Hoare (Mozilla)</div>
+                    <div class="lang-impact">💡 影响：Linux 内核开始接纳 Rust，系统编程的未来</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">Kotlin</div>
+                    <div class="lang-year">2011</div>
+                    <div class="lang-desc">
+                        更现代的 Java 替代者，完全兼容 Java。2017 年成为 Android 官方推荐语言。
+                    </div>
+                    <div class="lang-creator">JetBrains</div>
+                    <div class="lang-impact">💡 影响：Android 开发首选，后端开发新兴选择</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">TypeScript</div>
+                    <div class="lang-year">2012</div>
+                    <div class="lang-desc">
+                        JavaScript 的超集，添加了静态类型系统。大型前端项目的首选，显著提升代码质量。
+                    </div>
+                    <div class="lang-creator">Anders Hejlsberg (微软)</div>
+                    <div class="lang-impact">💡 影响：现代前端开发的事实标准</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="comparison-section">
+        <h2>📊 编程语言代际对比</h2>
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <h3>🎯 设计目标演变</h3>
+                <ul>
+                    <li>1940s: 让计算机能执行</li>
+                    <li>1950s-60s: 让人能读懂</li>
+                    <li>1970s-80s: 结构化、可维护</li>
+                    <li>1990s-00s: 面向对象、跨平台</li>
+                    <li>2010s-至今: 安全、并发、简洁</li>
+                </ul>
+            </div>
+            <div class="comparison-card">
+                <h3>📈 流行度趋势</h3>
+                <ul>
+                    <li>Python: AI 时代第一语言</li>
+                    <li>JavaScript: Web 垄断地位</li>
+                    <li>Java: 企业应用稳定</li>
+                    <li>Rust: 系统编程新星</li>
+                    <li>COBOL:  legacy 系统仍存</li>
+                </ul>
+            </div>
+            <div class="comparison-card">
+                <h3>💼 主要应用领域</h3>
+                <ul>
+                    <li>系统编程：C, C++, Rust</li>
+                    <li>Web 前端：JavaScript, TypeScript</li>
+                    <li>Web 后端：Python, Java, Go</li>
+                    <li>数据科学：Python, R</li>
+                    <li>移动开发：Swift, Kotlin</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 计算机发展简史 | 探索技术的演进历程</p>
+    </footer>
+</body>
+</html>

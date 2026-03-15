@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾伦·图灵传 - 计算机历史</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .biography-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            border-radius: 20px;
+            color: white;
+        }
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+        }
+        .profile-name {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .profile-dates {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .profile-title {
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-style: italic;
+            opacity: 0.85;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #1e40af;
+            border-left: 4px solid #3b82f6;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #3b82f6;
+            border: 3px solid #1e40af;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            bottom: -30px;
+            width: 2px;
+            background: #cbd5e1;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .timeline-year {
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+        .timeline-content {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 3px solid #3b82f6;
+        }
+        .quote-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 5px solid #0284c7;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            color: #0c4a6e;
+        }
+        .quote-author {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #0369a1;
+            font-style: normal;
+        }
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .achievement-card {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .achievement-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .achievement-title {
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        .achievement-desc {
+            font-size: 0.9em;
+            color: #475569;
+        }
+        .legacy-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 20px;
+            margin-top: 50px;
+        }
+        .legacy-section h2 {
+            color: white;
+            border-left-color: #60a5fa;
+        }
+        .legacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .legacy-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .legacy-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">💻 计算机历史</a>
+            <div class="nav-menu">
+                <a href="../index.html">首页</a>
+                <a href="chip.html">芯片</a>
+                <a href="computer.html">计算机</a>
+                <a href="ai.html">人工智能</a>
+                <a href="companies.html">科技公司</a>
+                <a href="timeline.html">时间线</a>
+                <a href="programming-languages.html">编程语言</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>🧠 计算机科学先驱</h1>
+        <p>改变世界的伟大思想家</p>
+    </header>
+
+    <div class="biography-container">
+        <div class="profile-header">
+            <div class="profile-avatar">👨‍💻</div>
+            <h1 class="profile-name">艾伦·麦席森·图灵</h1>
+            <div class="profile-dates">1912.06.23 - 1954.06.07</div>
+            <div class="profile-title">计算机科学之父 · 人工智能之父 · 密码学英雄</div>
+        </div>
+
+        <div class="section">
+            <h2>📖 生平简介</h2>
+            <p>
+                艾伦·图灵是英国数学家、逻辑学家、密码分析学家和计算机科学家。他形式化了"算法"和"计算"的概念，
+                用图灵机给出了计算的数学模型，被广泛认为是计算机科学和人工智能的奠基人。
+            </p>
+            <p>
+                在第二次世界大战期间，图灵在布莱切利园领导了破解德国恩尼格玛密码的工作，
+                对盟军的胜利做出了巨大贡献，估计缩短了战争至少两年，拯救了数百万人的生命。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>📅 人生时间线</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1912 年</div>
+                <div class="timeline-content">
+                    6 月 23 日出生于伦敦帕丁顿，父亲是英属印度民政局的公务员，母亲是铁路工程师的女儿。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1926-1931 年</div>
+                <div class="timeline-content">
+                    进入谢伯恩学校，展现出数学天赋。1931 年进入剑桥大学国王学院学习数学。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1936 年</div>
+                <div class="timeline-content">
+                    发表划时代论文《论可计算数及其在判定问题上的应用》，提出图灵机概念，为现代计算机奠定理论基础。
+                    这篇论文证明了"停机问题"是不可判定的。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1936-1938 年</div>
+                <div class="timeline-content">
+                    前往美国普林斯顿大学攻读博士学位，师数理逻辑学家阿隆佐·邱奇。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1939 年</div>
+                <div class="timeline-content">
+                    二战爆发后，回到英国加入政府密码学校，在布莱切利园从事密码破解工作。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1940-1945 年</div>
+                <div class="timeline-content">
+                    设计"炸弹机"(Bombe)，成功破解德国恩尼格玛密码，对大西洋海战胜利起到关键作用。
+                    据说丘吉尔曾说图灵是对战争胜利贡献最大的人。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1945-1948 年</div>
+                <div class="timeline-content">
+                    设计 ACE(自动计算引擎)，这是存储程序计算机的早期设计。随后加入曼彻斯特大学，
+                    参与曼彻斯特马克 1 号计算机的开发。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1950 年</div>
+                <div class="timeline-content">
+                    发表著名论文《计算机器与智能》，提出"图灵测试"，开创了人工智能哲学。
+                    论文开篇写道："我建议考虑这个问题：机器能思考吗？"
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1952 年</div>
+                <div class="timeline-content">
+                    因同性恋身份被定罪（当时在英国是犯罪行为），被迫接受化学阉割（雌激素治疗）。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1954 年</div>
+                <div class="timeline-content">
+                    6 月 7 日去世，享年 41 岁。死因是氰化物中毒，官方判定为自杀，但存在争议。
+                    床边留下半个浸过氰化物的苹果。
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            "我们只能看到前方一小段距离，但我们可以看到有很多工作需要完成。"
+            <div class="quote-author">— 艾伦·图灵，1949 年</div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 主要成就</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🧮</div>
+                    <div class="achievement-title">图灵机</div>
+                    <div class="achievement-desc">形式化计算理论，奠定计算机科学基础</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🔐</div>
+                    <div class="achievement-title">破解恩尼格玛</div>
+                    <div class="achievement-desc">二战密码破译英雄，拯救数百万生命</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🤖</div>
+                    <div class="achievement-title">图灵测试</div>
+                    <div class="achievement-desc">提出机器智能的判定标准，开创 AI 领域</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">💻</div>
+                    <div class="achievement-title">存储程序概念</div>
+                    <div class="achievement-desc">ACE 设计影响现代计算机架构</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legacy-section">
+            <h2>🌟 图灵的遗产</h2>
+            <p>
+                图灵去世后，他的贡献逐渐被世人认识和纪念。2013 年，英国女王伊丽莎白二世正式赦免图灵。
+                2017 年，"图灵法案"生效，赦免了所有因同性恋罪名被定罪的人。
+            </p>
+            <div class="legacy-grid">
+                <div class="legacy-item">
+                    <div class="legacy-icon">🏅</div>
+                    <div>图灵奖</div>
+                    <div style="font-size: 0.85em; opacity: 0.8; margin-top: 5px;">计算机界诺贝尔奖</div>
+                </div>
+                <div class="legacy-item">
+                    <div class="legacy-icon">💷</div>
+                    <div>50 英镑纸币</div>
+                    <div style="font-size: 0.85em; opacity: 0.8; margin-top: 5px;">2021 年印上图灵肖像</div>
+                </div>
+                <div class="legacy-item">
+                    <div class="legacy-icon">🎬</div>
+                    <div>《模仿游戏》</div>
+                    <div style="font-size: 0.85em; opacity: 0.8; margin-top: 5px;">2014 年传记电影</div>
+                </div>
+                <div class="legacy-item">
+                    <div class="legacy-icon">🏳️‍🌈</div>
+                    <div>LGBTQ+ 偶像</div>
+                    <div style="font-size: 0.85em; opacity: 0.8; margin-top: 5px;">平权运动象征</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-box" style="margin-top: 40px;">
+            "有时候，正是那些无人看好之人，最终成就了无人能及之事。"
+            <div class="quote-author">— 《模仿游戏》(2014)</div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 计算机发展简史 | 纪念伟大的计算机科学先驱</p>
+    </footer>
+</body>
+</html>
