@@ -16,3 +16,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # 每月 1 号凌晨 3 点生成月报告
 0 3 1 * * /home/jason/.openclaw/workspace-trader/projects/computer-history/scripts/generate-monthly-report.sh >> /tmp/computer-history-monthly.log 2>&1
+
+# 每 5 分钟自动扩展内容（创造新页面/功能）
+*/5 * * * * /home/jason/.openclaw/workspace-trader/scripts/auto-expand.sh >> /home/jason/.openclaw/workspace-trader/reports/cron.log 2>&1
