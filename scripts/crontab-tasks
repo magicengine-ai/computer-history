@@ -16,3 +16,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # 每 5 分钟自动扩展内容（创造新页面/功能）
 */5 * * * * /home/jason/.openclaw/workspace-trader/scripts/auto-expand.sh >> /home/jason/.openclaw/workspace-trader/reports/cron.log 2>&1
+
+# 每 5 分钟发送扩展汇报（扩展完成后 1 分钟发送）
+*/5 * * * * sleep 30 && /home/jason/.openclaw/workspace-trader/scripts/send-expansion-report.sh >> /home/jason/.openclaw/workspace-trader/reports/cron.log 2>&1
