@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索 - 计算机历史</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .search-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .search-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .search-header h1 {
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+        .search-box-large {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            display: flex;
+            gap: 10px;
+        }
+        .search-box-large input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-box-large input:focus {
+            border-color: #3b82f6;
+        }
+        .search-box-large button {
+            padding: 15px 30px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .search-box-large button:hover {
+            background: #1e40af;
+        }
+        .search-results {
+            margin-top: 30px;
+        }
+        .result-count {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+        .search-result {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .search-result:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .search-result a {
+            text-decoration: none;
+            color: #1e40af;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .search-result a:hover {
+            color: #2563eb;
+        }
+        .search-result .snippet {
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .search-result .category {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #64748b;
+        }
+        .no-results .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        .quick-links {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+        }
+        .quick-links h3 {
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .quick-link {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1e293b;
+            transition: background 0.2s;
+        }
+        .quick-link:hover {
+            background: #e2e8f0;
+        }
+        .quick-link strong {
+            display: block;
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+        .quick-link span {
+            font-size: 0.9em;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">💻 计算机简史</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="chip.html">芯片</a></li>
+                <li><a href="computer.html">计算机</a></li>
+                <li><a href="ai.html">人工智能</a></li>
+                <li><a href="companies.html">公司历史</a></li>
+                <li><a href="timeline.html">时间线</a></li>
+                <li><a href="programming-languages.html">编程语言</a></li>
+                <li><a href="turing-biography.html">人物</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索..." onkeypress="if(event.key==='Enter')search()">
+                <button onclick="search()" class="search-btn">🔍</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="search-container">
+        <div class="search-header">
+            <h1>🔍 站内搜索</h1>
+            <div class="search-box-large">
+                <input type="text" id="mainSearchInput" placeholder="输入关键词搜索..." onkeypress="if(event.key==='Enter')performSearch()">
+                <button onclick="performSearch()">搜索</button>
+            </div>
+        </div>
+
+        <div class="search-results" id="searchResults">
+            <div class="result-count" id="resultCount"></div>
+            <div id="resultsList"></div>
+        </div>
+
+        <div class="quick-links">
+            <h3>📚 快速浏览</h3>
+            <div class="quick-links-grid">
+                <a href="chip.html" class="quick-link">
+                    <strong>🔌 芯片</strong>
+                    <span>从沙子到超级芯片</span>
+                </a>
+                <a href="computer.html" class="quick-link">
+                    <strong>🖥️ 计算机</strong>
+                    <span>机械计算到数字革命</span>
+                </a>
+                <a href="ai.html" class="quick-link">
+                    <strong>🤖 人工智能</strong>
+                    <span>图灵测试到大语言模型</span>
+                </a>
+                <a href="programming-languages.html" class="quick-link">
+                    <strong>📝 编程语言</strong>
+                    <span>从 Fortran 到 Rust</span>
+                </a>
+                <a href="turing-biography.html" class="quick-link">
+                    <strong>🧠 图灵传</strong>
+                    <span>计算机科学之父</span>
+                </a>
+                <a href="von-neumann-biography.html" class="quick-link">
+                    <strong>🔬 冯·诺依曼</strong>
+                    <span>现代计算机之父</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 计算机发展简史 | 科普百科项目</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // 网站内容索引
+        const siteIndex = [
+            {
+                title: "芯片是怎么来的？",
+                url: "chip.html",
+                category: "芯片",
+                keywords: ["芯片", "半导体", "晶体管", "集成电路", "cpu", "制造", "摩尔定律"],
+                snippet: "从沙子到芯片，揭秘半导体工业的奇迹。了解晶体管、集成电路的发展历程。"
+            },
+            {
+                title: "计算机是怎么来的？",
+                url: "computer.html",
+                category: "计算机",
+                keywords: ["计算机", "机械", "电子管", "个人电脑", "pc", "革命"],
+                snippet: "从机械计算机到电子计算机，从房间大小到口袋里的超级电脑。"
+            },
+            {
+                title: "人工智能发展路径",
+                url: "ai.html",
+                category: "人工智能",
+                keywords: ["人工智能", "ai", "图灵测试", "深度学习", "大模型", "llm", "神经网络"],
+                snippet: "从图灵测试到深度学习，从专家系统到大语言模型。"
+            },
+            {
+                title: "科技公司发展史",
+                url: "companies.html",
+                category: "公司",
+                keywords: ["公司", "ibm", "苹果", "微软", "谷歌", "英特尔", "硅谷"],
+                snippet: "IBM、苹果、微软、谷歌、英特尔...这些改变世界的公司的发展历程。"
+            },
+            {
+                title: "完整时间线",
+                url: "timeline.html",
+                category: "时间线",
+                keywords: ["时间线", "历史", "事件", "年代", "发展"],
+                snippet: "1940s-2020s 关键事件记录，完整计算机发展历史时间线。"
+            },
+            {
+                title: "编程语言发展史",
+                url: "programming-languages.html",
+                category: "编程语言",
+                keywords: ["编程语言", "python", "java", "javascript", "c", "c++", "rust", "fortran", "代码"],
+                snippet: "从机器语言到 Python，从 Fortran 到 Rust。20+ 种编程语言详解。"
+            },
+            {
+                title: "艾伦·图灵传",
+                url: "turing-biography.html",
+                category: "人物",
+                keywords: ["图灵", "turing", "计算机科学之父", "人工智能", "密码", "恩尼格玛"],
+                snippet: "计算机科学之父、人工智能之父、密码学英雄的完整生平传记。"
+            },
+            {
+                title: "约翰·冯·诺依曼传",
+                url: "von-neumann-biography.html",
+                category: "人物",
+                keywords: ["冯诺依曼", "架构", "计算机之父", "博弈论", "曼哈顿计划", "数学"],
+                snippet: "现代计算机之父、数学天才、博弈论创始人的传奇一生。"
+            }
+        ];
+
+        // 执行搜索
+        function performSearch() {
+            const query = document.getElementById('mainSearchInput').value.trim().toLowerCase();
+            if (!query) return;
+
+            const results = siteIndex.filter(item => {
+                return item.title.toLowerCase().includes(query) ||
+                       item.keywords.some(k => k.toLowerCase().includes(query)) ||
+                       item.snippet.toLowerCase().includes(query);
+            });
+
+            displayResults(results, query);
+        }
+
+        // 显示结果
+        function displayResults(results, query) {
+            const countEl = document.getElementById('resultCount');
+            const listEl = document.getElementById('resultsList');
+
+            if (results.length === 0) {
+                countEl.textContent = '';
+                listEl.innerHTML = `
+                    <div class="no-results">
+                        <div class="icon">😕</div>
+                        <h3>未找到相关结果</h3>
+                        <p>试试其他关键词，或浏览下方的快速链接</p>
+                    </div>
+                `;
+                return;
+            }
+
+            countEl.textContent = `找到 ${results.length} 个相关结果`;
+            listEl.innerHTML = results.map(result => `
+                <div class="search-result">
+                    <a href="${result.url}">${highlightMatch(result.title, query)}</a>
+                    <div class="snippet">${highlightMatch(result.snippet, query)}</div>
+                    <span class="category">${result.category}</span>
+                </div>
+            `).join('');
+        }
+
+        // 高亮匹配词
+        function highlightMatch(text, query) {
+            const regex = new RegExp(`(${query})`, 'gi');
+            return text.replace(regex, '<mark style="background:#fef08a;padding:0 3px;">$1</mark>');
+        }
+
+        // 页面加载时检查 URL 参数
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q');
+            if (query) {
+                document.getElementById('mainSearchInput').value = query;
+                performSearch();
+            }
+        });
+    </script>
+</body>
+</html>

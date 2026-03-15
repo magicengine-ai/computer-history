@@ -19,8 +19,12 @@
                 <li><a href="pages/companies.html">公司历史</a></li>
                 <li><a href="pages/timeline.html">时间线</a></li>
                 <li><a href="pages/programming-languages.html">编程语言</a></li>
-                <li><a href="pages/turing-biography.html">人物传记</a></li>
+                <li><a href="pages/turing-biography.html">人物</a></li>
             </ul>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索..." onkeypress="if(event.key==='Enter')search()">
+                <button onclick="search()" class="search-btn">🔍</button>
+            </div>
         </nav>
     </header>
 

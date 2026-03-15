@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>约翰·冯·诺依曼传 - 计算机历史</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .biography-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            border-radius: 20px;
+            color: white;
+        }
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #c084fc, #a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+        }
+        .profile-name {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .profile-dates {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .profile-title {
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-style: italic;
+            opacity: 0.85;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #7c3aed;
+            border-left: 4px solid #a855f7;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #a855f7;
+            border: 3px solid #7c3aed;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            bottom: -30px;
+            width: 2px;
+            background: #cbd5e1;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .timeline-year {
+            font-weight: bold;
+            color: #7c3aed;
+            margin-bottom: 5px;
+        }
+        .timeline-content {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 3px solid #a855f7;
+        }
+        .quote-box {
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-left: 5px solid #9333ea;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            color: #581c87;
+        }
+        .quote-author {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #7e22ce;
+            font-style: normal;
+        }
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .achievement-card {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .achievement-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .achievement-title {
+            font-weight: bold;
+            color: #7c3aed;
+            margin-bottom: 8px;
+        }
+        .achievement-desc {
+            font-size: 0.9em;
+            color: #475569;
+        }
+        .legacy-section {
+            background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 20px;
+            margin-top: 50px;
+        }
+        .legacy-section h2 {
+            color: white;
+            border-left-color: #c084fc;
+        }
+        .von-neumann-architecture {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        .von-neumann-architecture h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+        }
+        .architecture-diagram {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .arch-component {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .arch-component strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        .arch-component span {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">💻 计算机历史</a>
+            <div class="nav-menu">
+                <a href="../index.html">首页</a>
+                <a href="chip.html">芯片</a>
+                <a href="computer.html">计算机</a>
+                <a href="ai.html">人工智能</a>
+                <a href="companies.html">科技公司</a>
+                <a href="timeline.html">时间线</a>
+                <a href="programming-languages.html">编程语言</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>🧠 计算机科学先驱</h1>
+        <p>改变世界的伟大思想家</p>
+    </header>
+
+    <div class="biography-container">
+        <div class="profile-header">
+            <div class="profile-avatar">🔬</div>
+            <h1 class="profile-name">约翰·冯·诺依曼</h1>
+            <div class="profile-dates">1903.12.28 - 1957.02.08</div>
+            <div class="profile-title">现代计算机之父 · 数学天才 · 博弈论创始人</div>
+        </div>
+
+        <div class="section">
+            <h2>📖 生平简介</h2>
+            <p>
+                约翰·冯·诺依曼是匈牙利裔美国数学家、物理学家、计算机科学家和博学家。他被广泛认为是
+                20 世纪最重要的数学家之一，对量子力学、泛函分析、集合论、经济学、博弈论和计算机科学
+                等领域做出了奠基性贡献。
+            </p>
+            <p>
+                冯·诺依曼提出了"存储程序"概念，即冯·诺依曼架构，这一设计至今仍是几乎所有计算机的基础。
+                他参与了曼哈顿计划，是氢弹设计的关键人物，也是数值天气预报的开创者。
+            </p>
+        </div>
+
+        <div class="von-neumann-architecture">
+            <h3>🏗️ 冯·诺依曼架构</h3>
+            <p style="text-align: center; margin-bottom: 20px; opacity: 0.9;">
+                现代计算机的五大组成部分
+            </p>
+            <div class="architecture-diagram">
+                <div class="arch-component">
+                    <strong>运算器</strong>
+                    <span>执行算术和逻辑运算</span>
+                </div>
+                <div class="arch-component">
+                    <strong>控制器</strong>
+                    <span>指挥协调各部件工作</span>
+                </div>
+                <div class="arch-component">
+                    <strong>存储器</strong>
+                    <span>存储程序和数据</span>
+                </div>
+                <div class="arch-component">
+                    <strong>输入设备</strong>
+                    <span>接收外部信息</span>
+                </div>
+                <div class="arch-component">
+                    <strong>输出设备</strong>
+                    <span>向外部发送结果</span>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                核心思想：程序和数据存储在同一存储器中，按地址访问
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>📅 人生时间线</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1903 年</div>
+                <div class="timeline-content">
+                    12 月 28 日出生于布达佩斯一个富有的犹太银行家家庭。从小就展现出惊人的记忆力、语言天赋和数学才能。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1911-1921 年</div>
+                <div class="timeline-content">
+                    在布达佩斯接受教育，师从著名数学家。17 岁时与导师共同发表第一篇数学论文。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1921-1926 年</div>
+                <div class="timeline-content">
+                    先后在柏林大学、苏黎世联邦理工学院和布达佩斯大学学习。1926 年获得数学博士学位，年仅 22 岁。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1927-1930 年</div>
+                <div class="timeline-content">
+                    在柏林大学和汉堡大学任教。开始研究量子力学的数学基础，提出量子力学的严格数学框架。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1930 年</div>
+                <div class="timeline-content">
+                    受邀前往美国普林斯顿大学讲学。1933 年成为普林斯顿高等研究院的创始教授，与爱因斯坦成为同事。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1937-1939 年</div>
+                <div class="timeline-content">
+                    开始研究流体力学和激波理论，这些研究后来对弹道学和核武器设计至关重要。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1943 年</div>
+                <div class="timeline-content">
+                    加入曼哈顿计划，负责原子弹的数学建模和爆炸透镜设计。他的计算对原子弹成功爆炸至关重要。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1945 年</div>
+                <div class="timeline-content">
+                    完成《关于 EDVAC 的报告草案》，首次提出"存储程序"概念，奠定了现代计算机架构的基础。
+                    这份报告被称为计算机史上最重要的文献之一。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1944 年</div>
+                <div class="timeline-content">
+                    与奥斯卡·摩根斯特恩合著《博弈论与经济行为》，开创了博弈论这一新领域，对经济学、政治学、
+                    军事战略等产生深远影响。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1950 年代</div>
+                <div class="timeline-content">
+                    成为美国原子能委员会成员，推动氢弹研发。同时领导数值天气预报项目，使用 ENIAC 计算机
+                    进行天气预测，开创了计算气象学。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1955 年</div>
+                <div class="timeline-content">
+                    被诊断出骨癌，可能与他在曼哈顿计划期间接受的辐射有关。病重期间仍坚持工作，完成《计算机与人脑》一书。
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1957 年</div>
+                <div class="timeline-content">
+                    2 月 8 日在华盛顿沃尔特·里德医院去世，享年 53 岁。去世时仍在撰写未完成的《计算机与人脑》。
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            "如果人们不相信数学是简单的，那只是因为他们没有意识到生活是多么复杂。"
+            <div class="quote-author">— 约翰·冯·诺依曼</div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 主要成就</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">💻</div>
+                    <div class="achievement-title">冯·诺依曼架构</div>
+                    <div class="achievement-desc">现代计算机设计的基础，沿用至今</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎮</div>
+                    <div class="achievement-title">博弈论</div>
+                    <div class="achievement-desc">开创性理论，获诺贝尔经济学奖</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">⚛️</div>
+                    <div class="achievement-title">量子力学</div>
+                    <div class="achievement-desc">建立严格的数学框架</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">💣</div>
+                    <div class="achievement-title">曼哈顿计划</div>
+                    <div class="achievement-desc">原子弹和氢弹设计关键人物</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🌤️</div>
+                    <div class="achievement-title">数值天气预报</div>
+                    <div class="achievement-desc">计算气象学开创者</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🧠</div>
+                    <div class="achievement-title">细胞自动机</div>
+                    <div class="achievement-desc">自复制机器理论先驱</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legacy-section">
+            <h2>🌟 冯·诺依曼的遗产</h2>
+            <p>
+                冯·诺依曼去世后，他的贡献继续影响着科学和技术的各个领域。冯·诺依曼架构至今仍是
+                几乎所有计算机的设计基础。博弈论成为经济学标准工具，并延伸至生物学、计算机科学等领域。
+            </p>
+            <p style="margin-top: 15px;">
+                为了纪念他，美国原子能委员会设立了冯·诺依曼奖，IEEE 设立了冯·诺依曼奖章。
+                月球上的一座环形山和小行星 22869 都以他的名字命名。
+            </p>
+        </div>
+
+        <div class="quote-box" style="margin-top: 40px;">
+            "年轻人，在数学中你不理解事物，你只是习惯了它们。"
+            <div class="quote-author">— 约翰·冯·诺依曼</div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 计算机发展简史 | 纪念伟大的计算机科学先驱</p>
+    </footer>
+</body>
+</html>

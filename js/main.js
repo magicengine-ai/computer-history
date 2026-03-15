@@ -1,5 +1,13 @@
 // 计算机简史 - 主脚本
 
+// 搜索功能
+function search() {
+    const query = document.getElementById('searchInput').value.trim();
+    if (query) {
+        window.location.href = `pages/search.html?q=${encodeURIComponent(query)}`;
+    }
+}
+
 // 更新时间显示
 function updateLastModified() {
     const updateElement = document.getElementById('last-update');
